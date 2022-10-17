@@ -97,7 +97,7 @@ class Program
         }
     }
     // a) TRAER USUARIO //
-    private static Usuario GetUsuario(string nombre, SqlCommand cmd)
+    public static Usuario GetUsuario(string nombre, SqlCommand cmd)
     {
         Usuario usuario = new Usuario();
 
