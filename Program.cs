@@ -125,7 +125,7 @@ class Program
         return usuario;
     }
     // b) TRAER PRODUCTO //
-    private static List<Producto> GetProducto(int idUsuario, SqlCommand cmd)
+    public static List<Producto> GetProducto(int idUsuario, SqlCommand cmd)
     {
         var listaProducto = new List<Producto>();
 
@@ -152,7 +152,7 @@ class Program
     }
 
     // c) TRAER PRODUCTOS VENDIDOS //
-    private static List<Producto> GetProductoVendido(int idUsuario, SqlCommand cmd)
+    public static List<Producto> GetProductoVendido(int idUsuario, SqlCommand cmd)
     {
         List<Producto> productos = new List<Producto>();
         cmd.CommandText = string.Format("select p.Id, p.Descripciones,p.Costo,p.PrecioVenta, p.Stock,p.IdUsuario from ProductoVendido pv inner join Producto p on pv.IdProducto = p.Id inner join usuario u on p.idusuario = u.id where u.id = {0} order by id", idUsuario);
@@ -179,7 +179,7 @@ class Program
     }
 
     // d) TRAER VENTAS //
-    private static List<Venta> GetVenta(int idUsuario, SqlCommand cmd)
+    public static List<Venta> GetVenta(int idUsuario, SqlCommand cmd)
     {
         List<Venta> ventas = new List<Venta>();
         cmd.CommandText = String.Format("select * from Venta where idusuario = {0}", idUsuario);
@@ -201,7 +201,7 @@ class Program
     }
 
     // e) INICIAR SESIÓN //
-    private static Usuario IniciarSesion(string NombreUsuario, string Contraseña, SqlCommand cmd)
+    public static Usuario IniciarSesion(string NombreUsuario, string Contraseña, SqlCommand cmd)
     {
         Usuario usuario = new Usuario();
         cmd.CommandText = String.Format("select * from Usuario where NombreUsuario = '{0}' and Contraseña = '{1}'", NombreUsuario, Contraseña);
