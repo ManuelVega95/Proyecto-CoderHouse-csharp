@@ -75,6 +75,7 @@ class Program
                         Console.WriteLine("Id Venta = " + venta.Id);
                         Console.WriteLine("Comentarios = " + venta.Comentarios);
                         Console.WriteLine("Id Usuario = " + venta.IdUsuario);
+                        Console.WriteLine("--------------");
                     }
                 }
                 else
